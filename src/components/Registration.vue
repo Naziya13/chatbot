@@ -54,7 +54,7 @@
 <script>
 
 import axios from 'axios'
-
+import router from '../router/index'
     export default {
 
         mounted() {
@@ -96,8 +96,10 @@ import axios from 'axios'
                 },config)
 
                 .then(function (response) {
-
                     currentObj.output = response.data;
+                    console.log(JSON.stringify(response));
+                    if(response.statusMessage == 'success');
+                     router.push({ name: "homepage"});                    
                 })
 
                 .catch(function (error) {
